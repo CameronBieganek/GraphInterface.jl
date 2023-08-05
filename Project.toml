@@ -1,0 +1,4 @@
+name = "GraphInterface"
+uuid = "6750223b-2671-42c4-badc-3e8559fa8179"
+authors = ["Cameron Bieganek"]
+version = "0.1.0"
