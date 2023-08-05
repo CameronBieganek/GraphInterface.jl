@@ -1,6 +1,14 @@
 
 module GraphInterface
 
+export add_edge!,
+    add_edges!,
+    add_vertex!,
+    add_vertices!,
+    edges,
+    neighbors,
+    vertices
+
 function vertices end
 
 function edges end
