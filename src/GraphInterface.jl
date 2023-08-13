@@ -6,7 +6,9 @@ export add_edge!,
     add_vertex!,
     add_vertices!,
     edges,
+    ne,
     neighbors,
+    nv,
     rem_edge!,
     rem_edges!,
     rem_vertex!,
@@ -18,6 +20,11 @@ function vertices end
 function edges end
 
 function neighbors end
+
+ne(g) = length(edges(g))
+nv(g) = length(vertices(g))
+
+function nv end
 
 function add_vertex! end
 
