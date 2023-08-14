@@ -32,6 +32,7 @@ function add_vertices!(g, vs)
     for v in vs
         add_vertex!(g, v)
     end
+    g
 end
 
 function add_edge! end
@@ -40,6 +41,7 @@ function add_edges!(g, es)
     for e in es
         add_edge!(g, e)
     end
+    g
 end
 
 function rem_vertex! end
@@ -48,6 +50,7 @@ function rem_vertices!(g, vs)
     for v in vs
         rem_vertex!(g, v)
     end
+    g
 end
 
 function rem_edge! end
@@ -56,6 +59,7 @@ function rem_edges!(g, es)
     for e in es
         rem_edge!(g, e)
     end
+    g
 end
 
 end
