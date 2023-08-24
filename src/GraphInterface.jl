@@ -39,7 +39,17 @@ end
 
 function add_weighted_edge! end
 
+function add_weighted_edge!(g, e, w::Real)
+    u, v = e
+    add_weighted_edge!(g, u, v, w)
+end
+
 add_edge!(g, u, v) = add_weighted_edge!(g, u, v, 1.0)
+
+function add_edge!(g, e)
+    u, v = e
+    add_edge!(g, u, v)
+end
 
 function add_edges!(g, es)
     for e in es
@@ -65,6 +75,11 @@ function rem_vertices!(g, vs)
 end
 
 function rem_edge! end
+
+function rem_edge!(g, e)
+    u, v = e
+    rem_edge!(g, u, v)
+end
 
 function rem_edges!(g, es)
     for e in es
