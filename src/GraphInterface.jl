@@ -5,6 +5,8 @@ export add_edge!,
     add_edges!,
     add_vertex!,
     add_vertices!,
+    add_weighted_edge!,
+    add_weighted_edges!,
     edges,
     ne,
     neighbors,
@@ -35,11 +37,20 @@ function add_vertices!(g, vs)
     g
 end
 
-function add_edge! end
+function add_weighted_edge! end
+
+add_edge!(g, u, v) = add_weighted_edge!(g, u, v, 1.0)
 
 function add_edges!(g, es)
     for e in es
         add_edge!(g, e)
+    end
+    g
+end
+
+function add_weighted_edges!(g, weighted_edges)
+    for (u, v, w) in weighted_edges
+        add_weighted_edge!(g, u, v, w)
     end
     g
 end
