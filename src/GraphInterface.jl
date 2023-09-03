@@ -16,10 +16,10 @@ export add_edge!,
     rem_vertices!,
     vertices
 
+abstract type AbstractGraph end
 abstract type AbstractEdge end
 abstract type AbstractUndirectedEdge <: AbstractEdge end
 abstract type AbstractDirectedEdge <: AbstractEdge end
-abstract type AbstractGraph{V, E <: AbstractEdge} end
 
 function vertices end
 
