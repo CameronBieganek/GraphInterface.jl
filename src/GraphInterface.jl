@@ -1,7 +1,11 @@
 
 module GraphInterface
 
-export add_edge!,
+export AbstractGraph,
+    AbstractDirectedEdge,
+    AbstractEdge,
+    AbstractUndirectedEdge,
+    add_edge!,
     add_edges!,
     add_vertex!,
     add_vertices!,
