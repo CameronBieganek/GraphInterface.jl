@@ -6,6 +6,7 @@ export add_edge!,
     add_vertex!,
     add_vertices!,
     add_weighted_edges!,
+    edge_type,
     edges,
     ne,
     neighbors,
@@ -14,6 +15,7 @@ export add_edge!,
     rem_edges!,
     rem_vertex!,
     rem_vertices!,
+    vertex_type,
     vertices
 
 abstract type AbstractGraph end
@@ -27,8 +29,10 @@ function edges end
 
 function neighbors end
 
-ne(g) = length(edges(g))
-nv(g) = length(vertices(g))
+nv(g::AbstractGraph) = length(vertices(g))
+ne(g::AbstractGraph) = length(edges(g))
+vertex_type(g::AbstractGraph) = eltype(vertices(g))
+edge_type(g::AbstractGraph) = eltype(edges(g))
 
 function add_vertex! end
 
