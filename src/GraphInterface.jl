@@ -12,7 +12,6 @@ export AbstractGraph,
     add_weighted_edges!,
     edge_type,
     edges,
-    empty,
     ne,
     neighbors,
     nv,
@@ -38,8 +37,6 @@ nv(g::AbstractGraph) = length(vertices(g))
 ne(g::AbstractGraph) = length(edges(g))
 vertex_type(g::AbstractGraph) = eltype(vertices(g))
 edge_type(g::AbstractGraph) = eltype(edges(g))
-
-function empty end
 
 function add_vertex! end
 
