@@ -190,7 +190,7 @@ end
 
 
 """
-    add_edge!(g::AbstractGraph, u, v[, w=1.0])
+    add_edge!(g::AbstractGraph, u, v[, w::Number=1])
 
 If the edge that connects the vertices `u` and `v` is not in the graph `g`, then add it to `g`,
 with an edge weight of `w`, otherwise do nothing. This is guaranteed to succeed, as long as
@@ -210,7 +210,7 @@ Returns the graph `g` (after adding the edge connecting `u` and `v`).
 
 ----
 
-    add_edge!(g::AbstractGraph, e[, w=1.0])
+    add_edge!(g::AbstractGraph, e[, w::Number=1])
 
 If the edge `e` is not in the graph `g`, then add it to `g`, with an edge weight of `w`,
 otherwise do nothing. The edge `e` must be of type `edge_type(g)`. If the vertices connected by
@@ -224,7 +224,7 @@ function add_edge! end
 """
     add_edges!(g::AbstractGraph, es)
 
-Add the edges in the iterator `es` to the graph `g`, each with an edge weight of 1.0.
+Add the edges in the iterator `es` to the graph `g`, each with an edge weight of 1.
 The element type of the iterator must be the same as the edge type for the graph,
 i.e. `eltype(es) == edge_type(g)`. This is a convenience method provided by `GraphInterface`
 that works by repeatedly applying `add_edge!` to the contents of `es`.
@@ -326,27 +326,29 @@ end
 
 
 """
-    weight(g, u, v)
+    weight(g::AbstractGraph, u, v)
 
-Get the weight of the edge that connects the vertices `u` and `v` in the graph `g`.
+Get the weight of the edge that connects the vertices `u` and `v` in the graph `g`. Edge
+weights must be subtypes of `Number`.
 
 ----
 
-    weight(g, e)
+    weight(g::AbstractGraph, e)
 
 Get the weight of the edge `e` in the graph `g`. The edge `e` must be of type `edge_type(g)`.
+Edge weights must be subtypes of `Number`.
 """
 function weight end
 
 
 """
-    set_weight!(g, u, v, w)
+    set_weight!(g::AbstractGraph, u, v, w::Number)
 
 Set to `w` the weight of the edge that connects the vertices `u` and `v` in the graph `g`.
 
 ----
 
-    set_weight!(g, e, w)
+    set_weight!(g::AbstractGraph, e, w::Number)
 
 Set to `w` the weight of the edge `e` in the graph `g`. The edge `e` must be of type
 `edge_type(g)`.
