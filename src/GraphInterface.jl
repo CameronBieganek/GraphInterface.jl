@@ -20,8 +20,10 @@ export AbstractGraph,
     rem_edges!,
     rem_vertex!,
     rem_vertices!,
+    set_weight!,
     vertex_type,
-    vertices
+    vertices,
+    weight
 
 
 """
@@ -321,6 +323,35 @@ function rem_edges!(g::AbstractGraph, es)
     end
     g
 end
+
+
+"""
+    weight(g, u, v)
+
+Get the weight of the edge that connects the vertices `u` and `v` in the graph `g`.
+
+----
+
+    weight(g, e)
+
+Get the weight of the edge `e` in the graph `g`. The edge `e` must be of type `edge_type(g)`.
+"""
+function weight end
+
+
+"""
+    set_weight!(g, u, v, w)
+
+Set to `w` the weight of the edge that connects the vertices `u` and `v` in the graph `g`.
+
+----
+
+    set_weight!(g, e, w)
+
+Set to `w` the weight of the edge `e` in the graph `g`. The edge `e` must be of type
+`edge_type(g)`.
+"""
+function set_weight! end
 
 
 end

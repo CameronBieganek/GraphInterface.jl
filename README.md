@@ -25,6 +25,8 @@ GraphInterface methods:
 - `add_edge!`
 - `rem_vertex!`
 - `rem_edge!`
+- `weight`
+- `set_weight!`
 
 Further information on the requirements of the above methods can be found in the docstrings.
 In particular, the iterators returned by `vertices` and `edges` must have methods for the
@@ -35,23 +37,10 @@ following functions:
 - `Base.in`
 
 GraphInterface also provides an abstract edge type, `AbstractEdge`. It is required that
-`eltype(edges(g))` must be a subtype of `AbstractEdge`. To test for the existence of a vertex
-`v` or an edge `e` in the graph `g`, one can use `v in vertices(g)` or `e in edges(g)`,
-respectively.
+`eltype(edges(g))` must be a subtype of `AbstractEdge`.
 
-
-## Edge weights
-
-An object that satisfies the `AbstractGraph` interface must have a public `weight` property
-via which one can get and set edge weights. The interface for this property is as follows:
-
-- Given a graph `g` and an edge `e`, get the weight of edge `e` via `g.weight[e]`.
-- Given a graph `g` and an edge defined by the vertices `u` and `v`, get the edge weight
-  via `g.weight[u, v]`.
-- Given a graph `g`, an edge `e`, and a weight `w`, set the weight of edge `e` via
-  `g.weight[e] = w`.
-- Given a graph `g`, an edge defined by the vertices `u` and `v`, and a weight `w`, set the
-  edge weight via `g.weight[u, v] = w`.
+To test for the existence of a vertex `v` or an edge `e` in the graph `g`, one can
+use `v in vertices(g)` or `e in edges(g)`, respectively.
 
 
 ## Directed graphs
