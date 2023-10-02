@@ -202,6 +202,8 @@ Thus, `u` must be convertible to the vertex type of graph `g` *and* the result o
 must be `isequal` to `u`. Thus, if `g` has vertex type `Int`, then `add_edge!(g, 'a', 'b')` will
 fail, because `isequal(97, 'a')` returns `false`.
 
+If the vertices `u` and `v` are not in `g`, then they will be added to `g`.
+
 Returns the graph `g` (after adding the edge connecting `u` and `v`).
 
 ----
@@ -209,7 +211,8 @@ Returns the graph `g` (after adding the edge connecting `u` and `v`).
     add_edge!(g::AbstractGraph, e[, w=1.0])
 
 If the edge `e` is not in the graph `g`, then add it to `g`, with an edge weight of `w`,
-otherwise do nothing. The edge `e` must be of type `edge_type(g)`.
+otherwise do nothing. The edge `e` must be of type `edge_type(g)`. If the vertices connected by
+the edge `e` are not in `g`, then they will be added to `g`.
 
 Returns the graph `g` (after adding the edge `e`).
 """
@@ -261,7 +264,8 @@ end
 """
     rem_vertex!(g::AbstractGraph, v)
 
-If the vertex `v` is in the graph `g`, then remove it from `g`, otherwise do nothing.
+If the vertex `v` is in the graph `g`, then remove it from `g` (along with any edges that were
+connected to `v`), otherwise do nothing.
 
 Returns the graph `g` (after removing `v`).
 """
