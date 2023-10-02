@@ -120,7 +120,7 @@ true
 julia> Edge("bc") in edges(g)
 true
 
-julia> g.weight['b', 'c']
+julia> weight(g, 'b', 'c')
 1.0
 
 julia> neighbors(g, 'c')

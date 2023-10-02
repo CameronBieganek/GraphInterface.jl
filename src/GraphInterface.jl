@@ -329,7 +329,8 @@ end
     weight(g::AbstractGraph, u, v)
 
 Get the weight of the edge that connects the vertices `u` and `v` in the graph `g`. Edge
-weights must be subtypes of `Number`.
+weights must be subtypes of `Number`. For an undirected graph, `weight(g, u, v) == weight(g, v, u)`
+must be true.
 
 ----
 
@@ -346,12 +347,16 @@ function weight end
 
 Set to `w` the weight of the edge that connects the vertices `u` and `v` in the graph `g`.
 
+Returns the weight `w`.
+
 ----
 
     set_weight!(g::AbstractGraph, e, w::Number)
 
 Set to `w` the weight of the edge `e` in the graph `g`. The edge `e` must be of type
 `edge_type(g)`.
+
+Returns the weight `w`.
 """
 function set_weight! end
 
